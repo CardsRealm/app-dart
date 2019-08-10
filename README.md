@@ -3,7 +3,11 @@
 
 This repository has the goal to construct the App for the [Cards Realm](https://cardsrealm.com/).
 
-## SOON 
+## SOON: MORE INFORMATIONS
+
+## Built With
+* [Flutter](https://flutter.dev/)
+* [DART](https://dart.dev/)
 
 ## Contributors ✨
 
