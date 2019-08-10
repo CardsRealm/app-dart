@@ -1,20 +1,9 @@
-# flutter_app
+# Cards Realm APP
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
-A new Flutter application.
+This repository has the goal to construct the App for the [Cards Realm](https://cardsrealm.com/).
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## SOON 
 
 ## Contributors ✨
 
@@ -31,3 +20,4 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+Our guideline can be founded at the [CONTRIBUTING.md](https://github.com/CardsRealm/app-dart/blob/master/CONTRIBUTING.md) file.
