@@ -1,13 +1,15 @@
 # Cards Realm APP
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
-This repository has the goal to construct the App for the [Cards Realm](https://cardsrealm.com/).
+This repository has the goal to construct the App for the site [Cards Realm](https://cardsrealm.com/).
 
 ## SOON: MORE INFORMATIONS
 
 ## Built With
-* [Flutter](https://flutter.dev/)
-* [DART](https://dart.dev/)
+
+- [Flutter](https://flutter.dev/)
+- [DART](https://dart.dev/)
 
 ## Contributors ✨
 
