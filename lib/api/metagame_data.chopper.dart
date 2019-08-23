@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'media_data.dart';
+part of 'metagame_data.dart';
 
 // **************************************************************************
 // ChopperGenerator
 // **************************************************************************
 
-class _$MediaData extends MediaData {
-  _$MediaData([ChopperClient client]) {
+class _$MetagameData extends MetagameData {
+  _$MetagameData([ChopperClient client]) {
     if (client == null) return;
     this.client = client;
   }
 
-  final definitionType = MediaData;
+  final definitionType = MetagameData;
 
-  Future<Response<List<Media>>> getMedia() {
-    final $url = 'cardsrealm.com/app/getmedia';
+  Future<Response> getMetagame() {
+    final $url = 'cardsrealm.com/app/metagame';
     final $request = Request('GET', $url, client.baseUrl);
-    return client.send<List<Media>, Media>($request);
+    return client.send<dynamic, dynamic>($request);
   }
 }

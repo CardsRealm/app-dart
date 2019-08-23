@@ -30,5 +30,7 @@ class ArticlePage extends StatelessWidget {
     );
   }
 
-  Widget _buildArticle(Map article) {}
+  Widget _buildArticle(Map article) {
+    return Container();
+  }
 }

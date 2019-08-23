@@ -4,6 +4,6 @@ part 'metagame_data.chopper.dart';
 
 @ChopperApi(baseUrl: 'cardsrealm.com/app')
 abstract class MetagameData extends ChopperService {
-  @Get(path: '')
+  @Get(path: '/metagame')
   Future<Response> getMetagame();
 }

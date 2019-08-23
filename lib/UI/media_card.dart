@@ -25,7 +25,7 @@ class MediaCard extends StatelessWidget {
           ButtonTheme.bar(
             child: FlatButton(
               child: Text('Assistir'),
-              onPressed: watchMedia(media.mediaURL),
+              onPressed: watchMedia(media.mediaURL, media.texto),
             ),
           )
         ],
@@ -33,11 +33,11 @@ class MediaCard extends StatelessWidget {
     );
   }
 
-  watchMedia(String mediaUrl) async {
+  watchMedia(String mediaUrl, String titulo) async {
     if (await canLaunch(mediaUrl)) {
       await launch(mediaUrl);
     } else {
-      throw 'Erro ao abrir $mediaUrl';
+      throw 'Erro ao abrir $titulo';
     }
   }
 }
