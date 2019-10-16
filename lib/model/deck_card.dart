@@ -1,32 +1,24 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'deck_card.g.dart';
 
-@JsonSerializable()
-class DeckCard {
-  @JsonKey(name: 'deck_id')
-  final int deckId;
+abstract class DeckCard implements Built<DeckCard, DeckCardBuilder> {
+  int get deckId;
 
-  @JsonKey(name: 'deck_title')
-  final String deckTitle;
+  String get deckTitle;
 
-  @JsonKey(name: 'name_por')
-  final String namePortuguese;
+  String get namePortuguese;
 
-  @JsonKey(name: 'deck_quantity')
-  final int deckQuantity;
+  int get deckQuantity;
 
-  @JsonKey(name: 'total_cost_cardkingdom')
-  final double costCardKingdom;
+  double get costCardKingdom;
 
-  @JsonKey(name: 'total_cost_cardhoarder')
-  final double costCardHoarder;
+  double get costCardHoarder;
 
-  DeckCard(this.deckId, this.deckTitle, this.namePortuguese, this.deckQuantity,
-      this.costCardKingdom, this.costCardHoarder);
+  DeckCard._();
 
-  factory DeckCard.fromJson(Map<String, dynamic> json) =>
-      _$DeckCardFromJson(json);
+  factory DeckCard([updates(DeckCardBuilder db)]) = _$DeckCard;
 
-  Map<String, dynamic> toJson() => _$DeckCardToJson(this);
+  static Serializer<DeckCard> get serializer => _$deckCardSerializer;
 }

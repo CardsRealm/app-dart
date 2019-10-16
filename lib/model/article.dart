@@ -1,35 +1,26 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'article.g.dart';
 
-@JsonSerializable()
-class Article {
-  @JsonKey(name: 'nickname')
-  final String nickName;
+abstract class Article implements Built<Article, ArticleBuilder> {
+  String get nickName;
 
-  @JsonKey(name: 'imageURLUser')
-  final String userImage;
+  String get userImage;
 
-  @JsonKey(name: 'article_imgpath')
-  final String imgPath;
+  String get imgPath;
 
-  @JsonKey(name: 'article_title')
-  final String title;
+  String get title;
 
-  @JsonKey(name: 'article_txt')
-  final String texto;
+  String get texto;
 
-  @JsonKey(name: 'likes')
-  final int likes;
+  int get likes;
 
-  @JsonKey(name: 'article_views')
-  final int views;
+  int get views;
 
-  Article(this.nickName, this.userImage, this.imgPath, this.title, this.texto,
-      this.likes, this.views);
+  Article._();
 
-  factory Article.fromJson(Map<String, dynamic> json) =>
-      _$ArticleFromJson(json);
+  factory Article([updates(ArticleBuilder ab)]) = _$Article;
 
-  Map<String, dynamic> toJson() => _$ArticleToJson(this);
+  static Serializer<Article> get serializer => _$articleSerializer;
 }

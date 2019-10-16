@@ -13,17 +13,12 @@ class MyApp extends StatelessWidget {
       builder: (_) => ArticlesData.create(),
       dispose: (context, ArticlesData service) => service.client.dispose(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Cards Realm',
-        theme: new ThemeData(
+        theme: ThemeData(
           primarySwatch: Colors.deepPurple,
         ),
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text('Cards Realm'),
-          ),
-          drawer: CRDrawer(),
-          body: ArticlesPage(),
-        ),
+        home: ArticlesPage(),
       ),
     );
   }

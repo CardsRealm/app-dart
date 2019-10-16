@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/UI/about_page.dart';
+import 'package:flutter_app/UI/articles_list_page.dart';
+import 'package:flutter_app/UI/decks_list_page.dart';
+import 'package:flutter_app/UI/media_page.dart';
+import 'package:flutter_app/UI/metagame_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CRDrawer extends StatelessWidget {
@@ -10,7 +15,7 @@ class CRDrawer extends StatelessWidget {
       child: ListView(
         children: <Widget>[
           UserAccountsDrawerHeader(
-            accountName: Text('Realminho'),
+            accountName: Text('Realminho King'),
             accountEmail: Text('cardsrealm@gmail.com'),
             currentAccountPicture: CircleAvatar(
               backgroundColor: Colors.transparent,
@@ -21,42 +26,50 @@ class CRDrawer extends StatelessWidget {
             title: Text('Artigos'),
             trailing: Icon(FontAwesomeIcons.caretRight),
             leading: Icon(FontAwesomeIcons.newspaper),
-            onTap: loadArticles(),
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => ArticlesPage()));
+            },
           ),
           ListTile(
             title: Text('Vídeos'),
             trailing: Icon(FontAwesomeIcons.caretRight),
             leading: Icon(FontAwesomeIcons.video),
-            onTap: loadVideos(),
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => MediaPage()));
+            },
           ),
           ListTile(
             title: Text('Metagame'),
             trailing: Icon(FontAwesomeIcons.caretRight),
             leading: Icon(FontAwesomeIcons.balanceScaleRight),
-            onTap: loadMetagame(),
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => MetagamePage()));
+            },
           ),
           ListTile(
             title: Text('Decks'),
             trailing: Icon(FontAwesomeIcons.caretRight),
             leading: Icon(FontAwesomeIcons.listAlt),
-            onTap: loadDecks(),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => DecksListPage()));
+            },
           ),
           Divider(),
           ListTile(
             title: Text('Sobre Nós'),
             trailing: Icon(FontAwesomeIcons.caretRight),
             leading: Icon(FontAwesomeIcons.questionCircle),
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => About()));
+            },
           )
         ],
       ),
     );
   }
-
-  loadArticles() {}
-
-  loadVideos() {}
-
-  loadMetagame() {}
-
-  loadDecks() {}
 }

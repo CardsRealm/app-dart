@@ -1,24 +1,17 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:built_value/built_value.dart';
+import 'package:built_value/serializer.dart';
 
 part 'media.g.dart';
 
-@JsonSerializable()
-class Media {
-  @JsonKey(name: 'media_link_image')
-  final String imageURL;
+abstract class Media implements Built<Media, MediaBuilder> {
+  String get imageURL;
+  String get mediaURL;
+  String get texto;
+  DateTime get mediaDate;
 
-  @JsonKey(name: 'media_link_link')
-  final String mediaURL;
+  Media._();
 
-  @JsonKey(name: 'media_link_text')
-  final String texto;
+  factory Media([updates(MediaBuilder mb)]) = _$Media;
 
-  @JsonKey(name: 'media_link_date')
-  final DateTime mediaDate;
-
-  Media(this.imageURL, this.mediaURL, this.texto, this.mediaDate);
-
-  factory Media.fromJson(Map<String, dynamic> json) => _$MediaFromJson(json);
-
-  Map<String, dynamic> toJson() => _$MediaToJson(this);
+  static Serializer<Media> get serializer => _$mediaSerializer;
 }

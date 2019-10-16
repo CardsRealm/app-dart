@@ -14,10 +14,10 @@ class _$ArticlesData extends ArticlesData {
 
   final definitionType = ArticlesData;
 
-  Future<Response<List<ArticleItemList>>> getArticles() {
+  Future<Response<BuiltList<ArticleItemList>>> getArticles() {
     final $url = '/app/getlastarticles';
     final $request = Request('GET', $url, client.baseUrl);
-    return client.send<List<ArticleItemList>, ArticleItemList>($request);
+    return client.send<BuiltList<ArticleItemList>, ArticleItemList>($request);
   }
 
   Future<Response<Article>> getArticleByPath(String path) {
