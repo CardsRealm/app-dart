@@ -1,8 +1,8 @@
 import 'package:chopper/chopper.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter_app/api/built_value_converter.dart';
-import 'package:flutter_app/model/article.dart';
 import 'package:flutter_app/model/article_item_list.dart';
+import 'package:flutter_app/model/article.dart';
 
 part 'articles_data.chopper.dart';
 

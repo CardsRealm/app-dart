@@ -4,19 +4,21 @@ import 'package:built_value/serializer.dart';
 part 'article.g.dart';
 
 abstract class Article implements Built<Article, ArticleBuilder> {
-  String get nickName;
+  String get nickname;
 
-  String get userImage;
+  String get imageURLUser;
 
-  String get imgPath;
+  String get article_imgpath;
 
-  String get title;
+  String get article_title;
 
-  String get texto;
+  String get article_txt;
 
   int get likes;
 
-  int get views;
+  int get article_views;
+
+  DateTime get date;
 
   Article._();
 

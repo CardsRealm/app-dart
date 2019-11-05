@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/UI/cr_drawer.dart';
 
-class DecksListPage extends StatefulWidget {
-  _DecksListPageState createState() => _DecksListPageState();
-}
-
-class _DecksListPageState extends State<DecksListPage> {
+class DecksListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,10 +11,11 @@ class _DecksListPageState extends State<DecksListPage> {
       ),
       drawer: CRDrawer(),
       body: _buildBody(context),
+      backgroundColor: Colors.blueGrey,
     );
   }
+}
 
-  _buildBody(BuildContext context) {
-    return Container();
-  }
+_buildBody(BuildContext context) {
+  return Container();
 }

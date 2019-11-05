@@ -18,18 +18,15 @@ class _$MediaSerializer implements StructuredSerializer<Media> {
   Iterable<Object> serialize(Serializers serializers, Media object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
-      'imageURL',
-      serializers.serialize(object.imageURL,
+      'media_link_image',
+      serializers.serialize(object.media_link_image,
           specifiedType: const FullType(String)),
-      'mediaURL',
-      serializers.serialize(object.mediaURL,
+      'media_link_link',
+      serializers.serialize(object.media_link_link,
           specifiedType: const FullType(String)),
-      'texto',
-      serializers.serialize(object.texto,
+      'media_link_text',
+      serializers.serialize(object.media_link_text,
           specifiedType: const FullType(String)),
-      'mediaDate',
-      serializers.serialize(object.mediaDate,
-          specifiedType: const FullType(DateTime)),
     ];
 
     return result;
@@ -46,21 +43,17 @@ class _$MediaSerializer implements StructuredSerializer<Media> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'imageURL':
-          result.imageURL = serializers.deserialize(value,
+        case 'media_link_image':
+          result.media_link_image = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'mediaURL':
-          result.mediaURL = serializers.deserialize(value,
+        case 'media_link_link':
+          result.media_link_link = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'texto':
-          result.texto = serializers.deserialize(value,
+        case 'media_link_text':
+          result.media_link_text = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
-          break;
-        case 'mediaDate':
-          result.mediaDate = serializers.deserialize(value,
-              specifiedType: const FullType(DateTime)) as DateTime;
           break;
       }
     }
@@ -71,30 +64,25 @@ class _$MediaSerializer implements StructuredSerializer<Media> {
 
 class _$Media extends Media {
   @override
-  final String imageURL;
+  final String media_link_image;
   @override
-  final String mediaURL;
+  final String media_link_link;
   @override
-  final String texto;
-  @override
-  final DateTime mediaDate;
+  final String media_link_text;
 
   factory _$Media([void Function(MediaBuilder) updates]) =>
       (new MediaBuilder()..update(updates)).build();
 
-  _$Media._({this.imageURL, this.mediaURL, this.texto, this.mediaDate})
+  _$Media._({this.media_link_image, this.media_link_link, this.media_link_text})
       : super._() {
-    if (imageURL == null) {
-      throw new BuiltValueNullFieldError('Media', 'imageURL');
+    if (media_link_image == null) {
+      throw new BuiltValueNullFieldError('Media', 'media_link_image');
     }
-    if (mediaURL == null) {
-      throw new BuiltValueNullFieldError('Media', 'mediaURL');
+    if (media_link_link == null) {
+      throw new BuiltValueNullFieldError('Media', 'media_link_link');
     }
-    if (texto == null) {
-      throw new BuiltValueNullFieldError('Media', 'texto');
-    }
-    if (mediaDate == null) {
-      throw new BuiltValueNullFieldError('Media', 'mediaDate');
+    if (media_link_text == null) {
+      throw new BuiltValueNullFieldError('Media', 'media_link_text');
     }
   }
 
@@ -109,26 +97,24 @@ class _$Media extends Media {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is Media &&
-        imageURL == other.imageURL &&
-        mediaURL == other.mediaURL &&
-        texto == other.texto &&
-        mediaDate == other.mediaDate;
+        media_link_image == other.media_link_image &&
+        media_link_link == other.media_link_link &&
+        media_link_text == other.media_link_text;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, imageURL.hashCode), mediaURL.hashCode), texto.hashCode),
-        mediaDate.hashCode));
+        $jc($jc(0, media_link_image.hashCode), media_link_link.hashCode),
+        media_link_text.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('Media')
-          ..add('imageURL', imageURL)
-          ..add('mediaURL', mediaURL)
-          ..add('texto', texto)
-          ..add('mediaDate', mediaDate))
+          ..add('media_link_image', media_link_image)
+          ..add('media_link_link', media_link_link)
+          ..add('media_link_text', media_link_text))
         .toString();
   }
 }
@@ -136,30 +122,28 @@ class _$Media extends Media {
 class MediaBuilder implements Builder<Media, MediaBuilder> {
   _$Media _$v;
 
-  String _imageURL;
-  String get imageURL => _$this._imageURL;
-  set imageURL(String imageURL) => _$this._imageURL = imageURL;
+  String _media_link_image;
+  String get media_link_image => _$this._media_link_image;
+  set media_link_image(String media_link_image) =>
+      _$this._media_link_image = media_link_image;
 
-  String _mediaURL;
-  String get mediaURL => _$this._mediaURL;
-  set mediaURL(String mediaURL) => _$this._mediaURL = mediaURL;
+  String _media_link_link;
+  String get media_link_link => _$this._media_link_link;
+  set media_link_link(String media_link_link) =>
+      _$this._media_link_link = media_link_link;
 
-  String _texto;
-  String get texto => _$this._texto;
-  set texto(String texto) => _$this._texto = texto;
-
-  DateTime _mediaDate;
-  DateTime get mediaDate => _$this._mediaDate;
-  set mediaDate(DateTime mediaDate) => _$this._mediaDate = mediaDate;
+  String _media_link_text;
+  String get media_link_text => _$this._media_link_text;
+  set media_link_text(String media_link_text) =>
+      _$this._media_link_text = media_link_text;
 
   MediaBuilder();
 
   MediaBuilder get _$this {
     if (_$v != null) {
-      _imageURL = _$v.imageURL;
-      _mediaURL = _$v.mediaURL;
-      _texto = _$v.texto;
-      _mediaDate = _$v.mediaDate;
+      _media_link_image = _$v.media_link_image;
+      _media_link_link = _$v.media_link_link;
+      _media_link_text = _$v.media_link_text;
       _$v = null;
     }
     return this;
@@ -182,10 +166,9 @@ class MediaBuilder implements Builder<Media, MediaBuilder> {
   _$Media build() {
     final _$result = _$v ??
         new _$Media._(
-            imageURL: imageURL,
-            mediaURL: mediaURL,
-            texto: texto,
-            mediaDate: mediaDate);
+            media_link_image: media_link_image,
+            media_link_link: media_link_link,
+            media_link_text: media_link_text);
     replace(_$result);
     return _$result;
   }

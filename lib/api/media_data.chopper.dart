@@ -15,7 +15,7 @@ class _$MediaData extends MediaData {
   final definitionType = MediaData;
 
   Future<Response<BuiltList<Media>>> getMedia() {
-    final $url = 'cardsrealm.com/app/getmedia';
+    final $url = '/app/getmedia';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<BuiltList<Media>, Media>($request);
   }

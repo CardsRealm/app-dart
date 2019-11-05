@@ -18,25 +18,29 @@ class _$ArticleSerializer implements StructuredSerializer<Article> {
   Iterable<Object> serialize(Serializers serializers, Article object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
-      'nickName',
-      serializers.serialize(object.nickName,
+      'nickname',
+      serializers.serialize(object.nickname,
           specifiedType: const FullType(String)),
-      'userImage',
-      serializers.serialize(object.userImage,
+      'imageURLUser',
+      serializers.serialize(object.imageURLUser,
           specifiedType: const FullType(String)),
-      'imgPath',
-      serializers.serialize(object.imgPath,
+      'article_imgpath',
+      serializers.serialize(object.article_imgpath,
           specifiedType: const FullType(String)),
-      'title',
-      serializers.serialize(object.title,
+      'article_title',
+      serializers.serialize(object.article_title,
           specifiedType: const FullType(String)),
-      'texto',
-      serializers.serialize(object.texto,
+      'article_txt',
+      serializers.serialize(object.article_txt,
           specifiedType: const FullType(String)),
       'likes',
       serializers.serialize(object.likes, specifiedType: const FullType(int)),
-      'views',
-      serializers.serialize(object.views, specifiedType: const FullType(int)),
+      'article_views',
+      serializers.serialize(object.article_views,
+          specifiedType: const FullType(int)),
+      'date',
+      serializers.serialize(object.date,
+          specifiedType: const FullType(DateTime)),
     ];
 
     return result;
@@ -53,33 +57,37 @@ class _$ArticleSerializer implements StructuredSerializer<Article> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'nickName':
-          result.nickName = serializers.deserialize(value,
+        case 'nickname':
+          result.nickname = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'userImage':
-          result.userImage = serializers.deserialize(value,
+        case 'imageURLUser':
+          result.imageURLUser = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'imgPath':
-          result.imgPath = serializers.deserialize(value,
+        case 'article_imgpath':
+          result.article_imgpath = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'title':
-          result.title = serializers.deserialize(value,
+        case 'article_title':
+          result.article_title = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'texto':
-          result.texto = serializers.deserialize(value,
+        case 'article_txt':
+          result.article_txt = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
         case 'likes':
           result.likes = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'views':
-          result.views = serializers.deserialize(value,
+        case 'article_views':
+          result.article_views = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
+          break;
+        case 'date':
+          result.date = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime;
           break;
       }
     }
@@ -90,52 +98,58 @@ class _$ArticleSerializer implements StructuredSerializer<Article> {
 
 class _$Article extends Article {
   @override
-  final String nickName;
+  final String nickname;
   @override
-  final String userImage;
+  final String imageURLUser;
   @override
-  final String imgPath;
+  final String article_imgpath;
   @override
-  final String title;
+  final String article_title;
   @override
-  final String texto;
+  final String article_txt;
   @override
   final int likes;
   @override
-  final int views;
+  final int article_views;
+  @override
+  final DateTime date;
 
   factory _$Article([void Function(ArticleBuilder) updates]) =>
       (new ArticleBuilder()..update(updates)).build();
 
   _$Article._(
-      {this.nickName,
-      this.userImage,
-      this.imgPath,
-      this.title,
-      this.texto,
+      {this.nickname,
+      this.imageURLUser,
+      this.article_imgpath,
+      this.article_title,
+      this.article_txt,
       this.likes,
-      this.views})
+      this.article_views,
+      this.date})
       : super._() {
-    if (nickName == null) {
-      throw new BuiltValueNullFieldError('Article', 'nickName');
+    if (nickname == null) {
+      throw new BuiltValueNullFieldError('Article', 'nickname');
     }
-    if (userImage == null) {
-      throw new BuiltValueNullFieldError('Article', 'userImage');
+    if (imageURLUser == null) {
+      throw new BuiltValueNullFieldError('Article', 'imageURLUser');
     }
-    if (imgPath == null) {
-      throw new BuiltValueNullFieldError('Article', 'imgPath');
+    if (article_imgpath == null) {
+      throw new BuiltValueNullFieldError('Article', 'article_imgpath');
     }
-    if (title == null) {
-      throw new BuiltValueNullFieldError('Article', 'title');
+    if (article_title == null) {
+      throw new BuiltValueNullFieldError('Article', 'article_title');
     }
-    if (texto == null) {
-      throw new BuiltValueNullFieldError('Article', 'texto');
+    if (article_txt == null) {
+      throw new BuiltValueNullFieldError('Article', 'article_txt');
     }
     if (likes == null) {
       throw new BuiltValueNullFieldError('Article', 'likes');
     }
-    if (views == null) {
-      throw new BuiltValueNullFieldError('Article', 'views');
+    if (article_views == null) {
+      throw new BuiltValueNullFieldError('Article', 'article_views');
+    }
+    if (date == null) {
+      throw new BuiltValueNullFieldError('Article', 'date');
     }
   }
 
@@ -150,13 +164,14 @@ class _$Article extends Article {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is Article &&
-        nickName == other.nickName &&
-        userImage == other.userImage &&
-        imgPath == other.imgPath &&
-        title == other.title &&
-        texto == other.texto &&
+        nickname == other.nickname &&
+        imageURLUser == other.imageURLUser &&
+        article_imgpath == other.article_imgpath &&
+        article_title == other.article_title &&
+        article_txt == other.article_txt &&
         likes == other.likes &&
-        views == other.views;
+        article_views == other.article_views &&
+        date == other.date;
   }
 
   @override
@@ -165,24 +180,29 @@ class _$Article extends Article {
         $jc(
             $jc(
                 $jc(
-                    $jc($jc($jc(0, nickName.hashCode), userImage.hashCode),
-                        imgPath.hashCode),
-                    title.hashCode),
-                texto.hashCode),
-            likes.hashCode),
-        views.hashCode));
+                    $jc(
+                        $jc(
+                            $jc($jc(0, nickname.hashCode),
+                                imageURLUser.hashCode),
+                            article_imgpath.hashCode),
+                        article_title.hashCode),
+                    article_txt.hashCode),
+                likes.hashCode),
+            article_views.hashCode),
+        date.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('Article')
-          ..add('nickName', nickName)
-          ..add('userImage', userImage)
-          ..add('imgPath', imgPath)
-          ..add('title', title)
-          ..add('texto', texto)
+          ..add('nickname', nickname)
+          ..add('imageURLUser', imageURLUser)
+          ..add('article_imgpath', article_imgpath)
+          ..add('article_title', article_title)
+          ..add('article_txt', article_txt)
           ..add('likes', likes)
-          ..add('views', views))
+          ..add('article_views', article_views)
+          ..add('date', date))
         .toString();
   }
 }
@@ -190,45 +210,52 @@ class _$Article extends Article {
 class ArticleBuilder implements Builder<Article, ArticleBuilder> {
   _$Article _$v;
 
-  String _nickName;
-  String get nickName => _$this._nickName;
-  set nickName(String nickName) => _$this._nickName = nickName;
+  String _nickname;
+  String get nickname => _$this._nickname;
+  set nickname(String nickname) => _$this._nickname = nickname;
 
-  String _userImage;
-  String get userImage => _$this._userImage;
-  set userImage(String userImage) => _$this._userImage = userImage;
+  String _imageURLUser;
+  String get imageURLUser => _$this._imageURLUser;
+  set imageURLUser(String imageURLUser) => _$this._imageURLUser = imageURLUser;
 
-  String _imgPath;
-  String get imgPath => _$this._imgPath;
-  set imgPath(String imgPath) => _$this._imgPath = imgPath;
+  String _article_imgpath;
+  String get article_imgpath => _$this._article_imgpath;
+  set article_imgpath(String article_imgpath) =>
+      _$this._article_imgpath = article_imgpath;
 
-  String _title;
-  String get title => _$this._title;
-  set title(String title) => _$this._title = title;
+  String _article_title;
+  String get article_title => _$this._article_title;
+  set article_title(String article_title) =>
+      _$this._article_title = article_title;
 
-  String _texto;
-  String get texto => _$this._texto;
-  set texto(String texto) => _$this._texto = texto;
+  String _article_txt;
+  String get article_txt => _$this._article_txt;
+  set article_txt(String article_txt) => _$this._article_txt = article_txt;
 
   int _likes;
   int get likes => _$this._likes;
   set likes(int likes) => _$this._likes = likes;
 
-  int _views;
-  int get views => _$this._views;
-  set views(int views) => _$this._views = views;
+  int _article_views;
+  int get article_views => _$this._article_views;
+  set article_views(int article_views) => _$this._article_views = article_views;
+
+  DateTime _date;
+  DateTime get date => _$this._date;
+  set date(DateTime date) => _$this._date = date;
 
   ArticleBuilder();
 
   ArticleBuilder get _$this {
     if (_$v != null) {
-      _nickName = _$v.nickName;
-      _userImage = _$v.userImage;
-      _imgPath = _$v.imgPath;
-      _title = _$v.title;
-      _texto = _$v.texto;
+      _nickname = _$v.nickname;
+      _imageURLUser = _$v.imageURLUser;
+      _article_imgpath = _$v.article_imgpath;
+      _article_title = _$v.article_title;
+      _article_txt = _$v.article_txt;
       _likes = _$v.likes;
-      _views = _$v.views;
+      _article_views = _$v.article_views;
+      _date = _$v.date;
       _$v = null;
     }
     return this;
@@ -251,13 +278,14 @@ class ArticleBuilder implements Builder<Article, ArticleBuilder> {
   _$Article build() {
     final _$result = _$v ??
         new _$Article._(
-            nickName: nickName,
-            userImage: userImage,
-            imgPath: imgPath,
-            title: title,
-            texto: texto,
+            nickname: nickname,
+            imageURLUser: imageURLUser,
+            article_imgpath: article_imgpath,
+            article_title: article_title,
+            article_txt: article_txt,
             likes: likes,
-            views: views);
+            article_views: article_views,
+            date: date);
     replace(_$result);
     return _$result;
   }

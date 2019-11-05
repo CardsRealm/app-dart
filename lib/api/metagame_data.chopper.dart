@@ -15,7 +15,7 @@ class _$MetagameData extends MetagameData {
   final definitionType = MetagameData;
 
   Future<Response> getMetagame() {
-    final $url = 'cardsrealm.com/app/metagame';
+    final $url = '/app/metagame';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }

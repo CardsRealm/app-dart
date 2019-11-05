@@ -15,9 +15,13 @@ abstract class ArticleItemList
 
   String get article_title;
 
-  //DateTime get article_datetime;
+  DateTime get date;
 
   String get article_description;
+
+  int get likes;
+
+  int get article_views;
 
   ArticleItemList._();
 

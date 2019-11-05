@@ -15,7 +15,7 @@ class _$DecksData extends DecksData {
   final definitionType = DecksData;
 
   Future<Response<BuiltList<DeckCard>>> getDeckById(int id) {
-    final $url = 'cardsrealm.com/app/getdeckbyid';
+    final $url = '/app/getdeckbyid';
     final Map<String, dynamic> $params = {'deck_id': id};
     final $request = Request('GET', $url, client.baseUrl, parameters: $params);
     return client.send<BuiltList<DeckCard>, DeckCard>($request);

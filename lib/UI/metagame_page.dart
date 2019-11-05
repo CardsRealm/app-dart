@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/UI/cr_drawer.dart';
 
-class MetagamePage extends StatefulWidget {
-  @override
-  _MetagamePageState createState() => _MetagamePageState();
-}
-
-class _MetagamePageState extends State<MetagamePage> {
+class MetagamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +11,7 @@ class _MetagamePageState extends State<MetagamePage> {
       ),
       drawer: CRDrawer(),
       body: _buildBody(context),
+      backgroundColor: Colors.blueGrey,
     );
   }
 

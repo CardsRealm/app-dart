@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/UI/cr_drawer.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatelessWidget {
   @override
@@ -10,6 +11,7 @@ class About extends StatelessWidget {
         centerTitle: true,
       ),
       body: _buildBody(context),
+      backgroundColor: Colors.blueGrey,
     );
   }
 
@@ -41,9 +43,57 @@ class About extends StatelessWidget {
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    'Sua melhor fonte de notícias, ideias e cartas no mundo do Magic',
+                    'A Cards Realm é uma plataforma especializada em conectar jogadores de diferentes domínios de cartas, onde oferece maneiras de empoderamento, permitindo-lhes compartilhar e trocar cartas dos seus jogos favoritos.',
                     textAlign: TextAlign.justify,
-                  )
+                  ),
+                  Container(
+                    height: 30,
+                  ),
+                  Text(
+                    'Siga-nos em nossas redes sociais',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      IconButton(
+                        icon: Icon(FontAwesomeIcons.facebook),
+                        tooltip: 'Facebook',
+                        onPressed: () async {
+                          await launch('http://facebook.com/CardsRealmBR');
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(FontAwesomeIcons.instagram),
+                        tooltip: 'Instagram',
+                        onPressed: () async {
+                          await launch('https://www.instagram.com/cardsrealm/');
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(FontAwesomeIcons.twitter),
+                        tooltip: 'Twitter',
+                        onPressed: () async {
+                          await launch('https://twitter.com/CardsRealm');
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(FontAwesomeIcons.twitch),
+                        tooltip: 'Twitch TV',
+                        onPressed: () async {
+                          await launch('http://twitch.tv/cardsrealm');
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(FontAwesomeIcons.youtube),
+                        tooltip: 'Youtube',
+                        onPressed: () async {
+                          await launch('https://www.youtube.com/cardsrealm');
+                        },
+                      ),
+                    ],
+                  ),
                 ],
               )),
         ),

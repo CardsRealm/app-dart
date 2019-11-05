@@ -27,6 +27,7 @@ class CRDrawer extends StatelessWidget {
             trailing: Icon(FontAwesomeIcons.caretRight),
             leading: Icon(FontAwesomeIcons.newspaper),
             onTap: () {
+              Navigator.pop(context);
               Navigator.push(
                   context, MaterialPageRoute(builder: (_) => ArticlesPage()));
             },
@@ -36,6 +37,7 @@ class CRDrawer extends StatelessWidget {
             trailing: Icon(FontAwesomeIcons.caretRight),
             leading: Icon(FontAwesomeIcons.video),
             onTap: () {
+              Navigator.pop(context);
               Navigator.push(
                   context, MaterialPageRoute(builder: (_) => MediaPage()));
             },
@@ -45,6 +47,7 @@ class CRDrawer extends StatelessWidget {
             trailing: Icon(FontAwesomeIcons.caretRight),
             leading: Icon(FontAwesomeIcons.balanceScaleRight),
             onTap: () {
+              Navigator.pop(context);
               Navigator.push(
                   context, MaterialPageRoute(builder: (_) => MetagamePage()));
             },
@@ -54,6 +57,7 @@ class CRDrawer extends StatelessWidget {
             trailing: Icon(FontAwesomeIcons.caretRight),
             leading: Icon(FontAwesomeIcons.listAlt),
             onTap: () {
+              Navigator.pop(context);
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => DecksListPage()));
             },
@@ -64,6 +68,7 @@ class CRDrawer extends StatelessWidget {
             trailing: Icon(FontAwesomeIcons.caretRight),
             leading: Icon(FontAwesomeIcons.questionCircle),
             onTap: () {
+              Navigator.pop(context);
               Navigator.push(
                   context, MaterialPageRoute(builder: (context) => About()));
             },
