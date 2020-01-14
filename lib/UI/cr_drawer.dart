@@ -52,16 +52,6 @@ class CRDrawer extends StatelessWidget {
                   context, MaterialPageRoute(builder: (_) => MetagamePage()));
             },
           ),
-          ListTile(
-            title: Text('Decks'),
-            trailing: Icon(FontAwesomeIcons.caretRight),
-            leading: Icon(FontAwesomeIcons.listAlt),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => DecksListPage()));
-            },
-          ),
           Divider(),
           ListTile(
             title: Text('Sobre Nós'),

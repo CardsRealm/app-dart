@@ -12,8 +12,10 @@ class _$MediaData extends MediaData {
     this.client = client;
   }
 
+  @override
   final definitionType = MediaData;
 
+  @override
   Future<Response<BuiltList<Media>>> getMedia() {
     final $url = '/app/getmedia';
     final $request = Request('GET', $url, client.baseUrl);

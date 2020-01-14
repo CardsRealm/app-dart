@@ -12,11 +12,14 @@ class _$MetagameData extends MetagameData {
     this.client = client;
   }
 
+  @override
   final definitionType = MetagameData;
 
-  Future<Response> getMetagame() {
-    final $url = '/app/metagame';
-    final $request = Request('GET', $url, client.baseUrl);
-    return client.send<dynamic, dynamic>($request);
+  @override
+  Future<Response<BuiltList<Metagame>>> getMetagame(int format) {
+    final $url = '/app/get_metagame';
+    final $params = <String, dynamic>{'deck_format': format};
+    final $request = Request('GET', $url, client.baseUrl, parameters: $params);
+    return client.send<BuiltList<Metagame>, Metagame>($request);
   }
 }

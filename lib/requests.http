@@ -7,5 +7,14 @@ GET http://cardsrealm.com/app/getmedia
 ### Get Metagame
 GET http://cardsrealm.com/app/get_metagame
 
+### Metagame Pionner
+GET http://cardsrealm.com/app/get_metagame?deck_format=19
+
+### Get Metagame Decks
+GET http://cardsrealm.com/app/get_metagame_deck_decks?deck_format=modern&deck_name=r
+
 ### Get Deck by ID
 GET http://cardsrealm.com/app/getdeckbyid?deck_id=17731
+
+### Get an Article
+GET http://www.cardsrealm.com/app/getarticlebypath?article_path=o-commander-com-food-chain---the-first-sliver

@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/api/articles_data.dart';
 import 'package:flutter_app/model/article.dart';
 import 'package:flutter_app/util/guru_meditation.dart';
-import 'package:flutter_app/util/text_transform.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:html/dom.dart' as dom;
 
 class ArticlePage extends StatelessWidget {
   final String _articlePath;
@@ -48,38 +46,17 @@ class ArticlePage extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                CircleAvatar(
-                  backgroundImage: NetworkImage(article.imageURLUser),
-                  minRadius: 30.0,
-                ),
-                Column(
-                  children: <Widget>[
-                    Text(
-                      article.article_title,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                    ),
-                    Text(
-                      article.nickname,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.grey),
-                    ),
-                  ],
-                )
-              ],
-            ),
+            padding: EdgeInsets.all(10.0),
+            child: _buildHeader(article),
           ),
           Flexible(
             fit: FlexFit.loose,
             child: SingleChildScrollView(
               child: Html(
-                data: TextTransform.switchTags(article.article_txt),
+                data: switchTags(article.article_txt),
                 renderNewlines: true,
-                useRichText: false, // ! Renderiza os componentes customizados
+                useRichText:
+                    true, // ! Renderiza os componentes customizados se false
                 onLinkTap: (url) async {
                   if (await canLaunch(url)) {
                     await launch(url);
@@ -87,37 +64,11 @@ class ArticlePage extends StatelessWidget {
                     showAlert(context, code: 42);
                   }
                 },
-                onImageTap: (src) {
-                  _showCard(context, src);
-                },
                 padding: EdgeInsets.all(8.0),
                 linkStyle: const TextStyle(
                   color: Colors.purpleAccent,
                   decoration: TextDecoration.none,
                 ),
-                customTextStyle: (dom.Node node, TextStyle baseStyle) {
-                  if (node is dom.Element) {
-                    switch (node.localName) {
-                      case "p":
-                        return baseStyle
-                            .merge(TextStyle(height: 2, fontSize: 16));
-                    }
-                  }
-                  return baseStyle;
-                },
-                customRender: (node, children) {
-                  if (node is dom.Element) {
-                    switch (node.localName) {
-                      case 'deck':
-                        children.add(Container(
-                          child: Text('DECK ID'),
-                        ));
-                        return Column(children: children);
-                      // return _deckWidget(context, node.attributes['id']);
-                    }
-                  }
-                  return null;
-                },
               ),
             ),
           )
@@ -127,33 +78,64 @@ class ArticlePage extends StatelessWidget {
   }
 }
 
-_showCard(BuildContext context, String imgPath) {
-  Dialog card = Dialog(
-    child: Container(
-        width: 300,
-        height: 300,
-        child: Column(
-          children: <Widget>[
-            Image.network(
-              imgPath,
-              width: 300,
-              height: 250,
+Widget _buildHeader(Article article) {
+  return Column(
+    children: <Widget>[
+      Wrap(
+        alignment: WrapAlignment.end,
+        spacing: 8.0,
+        runSpacing: 4.0,
+        children: <Widget>[
+          Text(
+            article.article_title,
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          ),
+          Text(
+            article.nickname,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.grey,
             ),
-            RaisedButton(
-              color: Colors.red,
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('Close'),
-            )
-          ],
-        )),
+          )
+        ],
+      )
+    ],
   );
-  showDialog(context: context, builder: (_) => card);
 }
 
-_deckWidget(BuildContext context, String deckId) {
-  return Container(
-    child: Text('Deck ID: $deckId'),
-  );
+String switchTags(String src) {
+  final card = RegExp(r'\[card\]\((.*?)\)');
+  final bold = RegExp(r'\*(.*?)\*');
+  final link1 = RegExp(r'\[link\]\((.*?)\)');
+  final link2 = RegExp(r'\[link\]\((.*?)\)\((.*?)\)');
+  final image = RegExp(r'\[image\]\(https(.*?)\)');
+  final deck = RegExp(r'\[deck\]\((.*?)\)');
+
+  String result = src;
+
+  result = result.replaceAllMapped(card, (match) {
+    return "<b> ${match.group(1)} </b>";
+  });
+
+  result = result.replaceAllMapped(bold, (match) {
+    return "<b> ${match.group(0).replaceAll('*', '')} </b>";
+  });
+
+  result = result.replaceAllMapped(link2, (match) {
+    return "<a href='${match.group(1)}?&partner=CardsRealm&utm_source=CardsRealm&utm_medium=affiliate&utm_campaign=CardsRealm'>${match.group(2)}</a>";
+  });
+
+  result = result.replaceAllMapped(link1, (match) {
+    return "<a href='${match.group(1)}?&partner=CardsRealm&utm_source=CardsRealm&utm_medium=affiliate&utm_campaign=CardsRealm'>link</a>";
+  });
+
+  result = result.replaceAllMapped(image, (match) {
+    return "<img src='https${match.group(1)}' />";
+  });
+
+  result = result.replaceAllMapped(deck, (match) {
+    return "<a href='http://cardsrealm.com/decks/${match.group(1)}'>Deck List Completa</a>";
+  });
+
+  return result;
 }
