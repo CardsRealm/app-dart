@@ -15,7 +15,7 @@ class About extends StatelessWidget {
     );
   }
 
-  _buildBody(BuildContext context) {
+  Widget _buildBody(BuildContext context) {
     return Card(
         child: Column(
       mainAxisSize: MainAxisSize.min,

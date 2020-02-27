@@ -93,12 +93,12 @@ class _MetagamePageState extends State<MetagamePage> {
     );
   }
 
-  _buildList(BuildContext context, BuiltList<Metagame> meta) {
+  Widget _buildList(BuildContext context, BuiltList<Metagame> meta) {
     return ListView.builder(
       padding: EdgeInsets.all(10.0),
       itemCount: meta.length + 1,
       itemBuilder: (BuildContext context, int index) {
-        return index == 0
+        return (index == 0)
             ? _buildHeader(
                 context, ListFormat.getFormat(meta[index].decks_meta_format))
             : InkWell(
@@ -119,7 +119,7 @@ class _MetagamePageState extends State<MetagamePage> {
     );
   }
 
-  _buildHeader(BuildContext context, String title) {
+  Widget _buildHeader(BuildContext context, String title) {
     return Container(
       padding: EdgeInsets.all(5),
       margin: EdgeInsets.all(5),
@@ -136,7 +136,7 @@ class _MetagamePageState extends State<MetagamePage> {
     );
   }
 
-  _buildCard(BuildContext context, Metagame item) {
+  Widget _buildCard(BuildContext context, Metagame item) {
     return Card(
       child: Column(
         mainAxisSize: MainAxisSize.min,

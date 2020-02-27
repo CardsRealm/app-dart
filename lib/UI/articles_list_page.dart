@@ -42,7 +42,8 @@ class ArticlesPage extends StatelessWidget {
 
   // TODO adicionar timeago após o Leon mudar o formato da data no JSON
   // https://pub.dev/packages/timeago
-  _buildList(BuildContext context, BuiltList<ArticleItemList> _articleList) {
+  Widget _buildList(
+      BuildContext context, BuiltList<ArticleItemList> _articleList) {
     return ListView.builder(
         itemCount: _articleList.length,
         itemBuilder: (context, index) {

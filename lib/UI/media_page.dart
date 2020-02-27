@@ -38,7 +38,7 @@ class MediaPage extends StatelessWidget {
     );
   }
 
-  _buildList(BuildContext context, BuiltList<Media> _mediaList) {
+  Widget _buildList(BuildContext context, BuiltList<Media> _mediaList) {
     return ListView.builder(
       itemCount: _mediaList.length,
       itemBuilder: (BuildContext context, int index) {

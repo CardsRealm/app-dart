@@ -40,7 +40,7 @@ class ArticlePage extends StatelessWidget {
     );
   }
 
-  _buildArticle(BuildContext context, Article article) {
+  Widget _buildArticle(BuildContext context, Article article) {
     return Card(
       child: Column(
         mainAxisSize: MainAxisSize.min,

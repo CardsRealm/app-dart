@@ -8,7 +8,7 @@ GET http://cardsrealm.com/app/getmedia
 GET http://cardsrealm.com/app/get_metagame
 
 ### Metagame Pionner
-GET http://cardsrealm.com/app/get_metagame?deck_format=19
+GET http://cardsrealm.com/app/get_metagame?deck_format=8
 
 ### Get Metagame Decks
 GET http://cardsrealm.com/app/get_metagame_deck_decks?deck_format=modern&deck_name=r

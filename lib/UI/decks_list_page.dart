@@ -16,6 +16,6 @@ class DecksListPage extends StatelessWidget {
   }
 }
 
-_buildBody(BuildContext context) {
+Widget _buildBody(BuildContext context) {
   return Container();
 }
